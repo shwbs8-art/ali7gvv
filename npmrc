@@ -1,3 +1,4 @@
-save-exact=true
+save-exact=false
 legacy-peer-deps=true
 engine-strict=false
+package-lock=false
