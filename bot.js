@@ -39,7 +39,15 @@ let statusMessage;
 
 // ==================== إنشاء بوت ماينكرافت ====================
 function createBot() {
-    bot = mineflayer.createBot(config.minecraft);
+   bot = mineflayer.createBot({
+    host: config.minecraft.host,
+    port: config.minecraft.port,
+    username: config.minecraft.username,
+    auth: 'offline',
+    version: '1.21.1',
+    skipValidation: true,
+    hideErrors: false
+});
 
     bot.on('login', () => {
         console.log('✅ بوت ماينكرافت دخل السيرفر');
