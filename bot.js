@@ -39,17 +39,29 @@ let statusMessage;
 
 // ==================== إنشاء بوت ماينكرافت ====================
 function createBot() {
-   bot = mineflayer.createBot({
-    host: config.minecraft.host,
-    port: config.minecraft.port,
-    username: config.minecraft.username,
-    auth: 'offline',
-    version: '1.21.4',
-    skipValidation: true,
-    hideErrors: false
-});
+    console.log('🔄 جاري الاتصال بسيرفر ماينكرافت...');
+    console.log(`📍 العنوان: ${config.minecraft.host}:${config.minecraft.port}`);
+    
+    bot = mineflayer.createBot({
+        host: config.minecraft.host,
+        port: config.minecraft.port,
+        username: config.minecraft.username,
+        auth: 'offline',
+        version: false,
+        skipValidation: true,
+        hideErrors: false,
+        autoVersion: true
+    });
 
     bot.on('login', () => {
+        console.log('✅ بوت ماينكرافت دخل السيرفر بنجاح!');
+        console.log('📋 إصدار السيرفر:', bot.version);
+        startStatusUpdates();
+        startRandomMovements();
+        startAutoMessages();
+    });
+
+    // ... باقي الكود كما هو
         console.log('✅ بوت ماينكرافت دخل السيرفر');
         startStatusUpdates();
         startRandomMovements();
