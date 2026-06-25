@@ -44,7 +44,7 @@ function createBot() {
     port: config.minecraft.port,
     username: config.minecraft.username,
     auth: 'offline',
-    version: '1.21.1',
+    version: '1.21.4',
     skipValidation: true,
     hideErrors: false
 });
